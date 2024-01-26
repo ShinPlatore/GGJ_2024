@@ -23,9 +23,6 @@ public class SettingsMenu : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TMP_Text _back = null;
     private float _fontSize = 75f;
-    [Header("Sound")]
-    [SerializeField] private AudioSource _buttonSound = null;
-
     #endregion Fields
 
     #region Methods
@@ -45,7 +42,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void BackMainMenu()
     {
-        _buttonSound.Play();
         _mainMenu.SetActive(true);
         _settingsMenu.SetActive(false);
         _back.fontSize = _fontSize;
@@ -53,7 +49,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void BackResumeMenu()
     {
-        _buttonSound.Play();
         _resumeMenu.SetActive(true);
         _settingsMenu.SetActive(false);
         _back.fontSize = _fontSize;
@@ -61,13 +56,11 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullScreen)
     {
-        _buttonSound.Play();
         Screen.fullScreen = isFullScreen;
     }
 
     public void SetVsync()
     {
-        _buttonSound.Play();
         if (_vSyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
@@ -80,7 +73,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void ResolutionsInf()
     {
-        _buttonSound.Play();
         _selectedResolutions--;
         if (_selectedResolutions < 0)
         {
@@ -92,7 +84,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void ResolutionSup()
     {
-        _buttonSound.Play();
         _selectedResolutions++;
         if (_selectedResolutions > _resolutions.Count - 1)
         {

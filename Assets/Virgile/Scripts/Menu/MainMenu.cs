@@ -16,12 +16,13 @@ public class MainMenu : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TMP_Text _settings = null;
     private float _fontSize = 75f;
-    [Header("Sound")]
-    [SerializeField] private AudioSource _buttonSound = null;
     [Header("Animation")]
     private float _fadeAnimationTime = 1.95f;
+    private float _fadeAnimationTimePlay = 1.95f;
     [SerializeField] private GameObject _fadeOutSquare = null;
+    [SerializeField] private GameObject _fadeInSquare = null;
     private bool _hasFinishedQuitAnimation = false;
+    private bool _hasFinishedPlayAnimation = false;
 
     #endregion Fields
 
@@ -34,13 +35,12 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        _buttonSound.Play();
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("Test");
+        _hasFinishedPlayAnimation = true;
     }
 
     public void OpenSettings()
     {
-        _buttonSound.Play();
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(true);
         _settings.fontSize = _fontSize;
@@ -49,7 +49,6 @@ public class MainMenu : MonoBehaviour
     #region Quit Methods
     public void QuitChecking()
     {
-        _buttonSound.Play();
         _quitCheck.SetActive(true);
         _blur.SetActive(true);
     }
@@ -65,17 +64,26 @@ public class MainMenu : MonoBehaviour
         {
             Application.Quit();
         }
+
+        if(_hasFinishedPlayAnimation == true && _fadeAnimationTimePlay > 0)
+        {
+            _fadeInSquare.SetActive(true);
+            _fadeAnimationTimePlay -= Time.deltaTime;
+        }
+
+        if(_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
+        {
+            SceneManager.LoadScene("Test");
+        }
     }
 
     public void QuitY()
     {
-        _buttonSound.Play();
         _hasFinishedQuitAnimation = true;
     }
 
     public void QuitN()
     {
-        _buttonSound.Play();
         _quitCheck.SetActive(false);
         _blur.SetActive(false);
     }

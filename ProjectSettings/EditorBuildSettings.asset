@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Virgile/Scenes/MainMenu.unity
+    guid: 23402f809a818d64ba44c155004ec2d8
+  - enabled: 1
+    path: Assets/Virgile/Scenes/Test.unity
+    guid: ce5c7c4b78ff3284c8cef16c00fef5a0
   m_configObjects: {}
