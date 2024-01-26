@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [Header("Game Object")]
     [SerializeField] private GameObject _mainMenu = null;
     [SerializeField] private GameObject _settingsMenu = null;
+    [SerializeField] private GameObject _creditsMenu = null;
     [SerializeField] private GameObject _quitCheck = null;
     [SerializeField] private GameObject _blur = null;
     [Header("Text")]
@@ -35,7 +36,6 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        //SceneManager.LoadScene("Test");
         _hasFinishedPlayAnimation = true;
     }
 
@@ -44,6 +44,13 @@ public class MainMenu : MonoBehaviour
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(true);
         _settings.fontSize = _fontSize;
+    }
+
+    public void OpenCredits()
+    {
+        _mainMenu.SetActive(false);
+        _settingsMenu.SetActive(false);
+        _creditsMenu.SetActive(true);
     }
 
     #region Quit Methods
@@ -73,7 +80,7 @@ public class MainMenu : MonoBehaviour
 
         if(_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
         {
-            SceneManager.LoadScene("Test");
+            SceneManager.LoadScene("MiniGame");
         }
     }
 

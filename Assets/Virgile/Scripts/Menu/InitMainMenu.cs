@@ -5,11 +5,11 @@ using UnityEngine;
 public class InitMainMenu : MonoBehaviour
 {
     private float _fadeAnimationTime = 1.95f;
-    [SerializeField] private GameObject _fadeInSquare = null;
+    [SerializeField] private GameObject _fadeOutSquare = null;
 
     void Start()
     {
-        _fadeInSquare.SetActive(true);
+        _fadeOutSquare.SetActive(true);
     }
 
     void Update()
@@ -21,7 +21,7 @@ public class InitMainMenu : MonoBehaviour
 
         if (_fadeAnimationTime <= 0)
         {
-            _fadeInSquare.SetActive(false);
+            _fadeOutSquare.SetActive(false);
         }
     }
 }
