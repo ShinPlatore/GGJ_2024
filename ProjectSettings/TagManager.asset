@@ -7,6 +7,8 @@ TagManager:
   - FxTemporaire
   - Eye
   - OpponentHand
+  - Hand
+  - Wall
   layers:
   - Default
   - TransparentFX
