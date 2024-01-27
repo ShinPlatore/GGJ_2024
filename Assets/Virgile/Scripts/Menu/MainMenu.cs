@@ -26,6 +26,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _fadeInSquare = null;
     private bool _hasFinishedQuitAnimation = false;
     private bool _hasFinishedPlayAnimation = false;
+    [Header("Sound")]
+    [SerializeField] private AudioSource _buttonSound = null;
+    [SerializeField] private AudioSource _mainMenuMusic = null;
+    [SerializeField] private AudioSource _creditsMusic = null;
     #endregion Fields
 
     #region Methods
@@ -37,11 +41,13 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
+        _buttonSound.Play();
         _hasFinishedPlayAnimation = true;
     }
 
     public void OpenSettings()
     {
+        _buttonSound.Play();
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(true);
         _settings.fontSize = _fontSize;
@@ -49,6 +55,9 @@ public class MainMenu : MonoBehaviour
 
     public void OpenCredits()
     {
+        _mainMenuMusic.Stop();
+        _creditsMusic.Play();
+        _buttonSound.Play();
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(false);
         _creditsMenu.SetActive(true);
@@ -57,6 +66,9 @@ public class MainMenu : MonoBehaviour
 
     public void BackMenu()
     {
+        _mainMenuMusic.Play();
+        _creditsMusic.Stop();
+        _buttonSound.Play();
         _creditsMenu.SetActive(false);
         _mainMenu.SetActive(true);
         _back.fontSize = _fontSize;
@@ -66,6 +78,7 @@ public class MainMenu : MonoBehaviour
     #region Quit Methods
     public void QuitChecking()
     {
+        _buttonSound.Play();
         _quitCheck.SetActive(true);
         _blur.SetActive(true);
     }
@@ -96,11 +109,13 @@ public class MainMenu : MonoBehaviour
 
     public void QuitY()
     {
+        _buttonSound.Play();
         _hasFinishedQuitAnimation = true;
     }
 
     public void QuitN()
     {
+        _buttonSound.Play();
         _quitCheck.SetActive(false);
         _blur.SetActive(false);
     }

@@ -6,9 +6,11 @@ public class InitMainMenu : MonoBehaviour
 {
     private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeOutSquare = null;
+    [SerializeField] private AudioSource _mainMenuMusic = null;
 
     void Start()
     {
+        _mainMenuMusic.Play();
         _fadeOutSquare.SetActive(true);
     }
 
