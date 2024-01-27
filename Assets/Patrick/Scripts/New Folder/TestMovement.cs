@@ -197,9 +197,8 @@ public class TestMovement : MonoBehaviour
 
     private void PunchAction(Rigidbody2D obj)
     {
-        Vector3 direction = obj.transform.position - transform.position;
-        
-        obj.AddForceAtPosition(new Vector3(150f, 200f, 0f), obj.transform.position);
+
+        obj.AddForceAtPosition(new Vector3(Random.Range(100, 200), Random.Range(-250, 250), 0f), transform.position);
 
     }
 
@@ -208,10 +207,8 @@ public class TestMovement : MonoBehaviour
         Debug.Log(other.gameObject);
         _objectAtReach = other.gameObject.GetComponent<Rigidbody2D>();
 
-        if (_objectAtReach != null)
-        {
-            
-        }
+        
+
 
     }
 
