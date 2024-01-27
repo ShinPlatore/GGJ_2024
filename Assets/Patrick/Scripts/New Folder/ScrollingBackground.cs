@@ -15,6 +15,7 @@ public class ScrollingBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _scrollingSpeed += Time.fixedDeltaTime / 2000;
         transform.position += new Vector3(_scrollingSpeed * Time.deltaTime, 0, 0);
     }
 }
