@@ -25,14 +25,12 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private int _moveCount;
 
-    // Start is called before the first frame update
     void Start()
     {
 
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -41,7 +39,7 @@ public class TestMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.UpArrow))
         {
             if(_moveCount < 6)
             {
@@ -71,12 +69,12 @@ public class TestMovement : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) | Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (_moveCount > 0)
             {
@@ -108,7 +106,7 @@ public class TestMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) | Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (_direction == EHandDirection.Up)
             {

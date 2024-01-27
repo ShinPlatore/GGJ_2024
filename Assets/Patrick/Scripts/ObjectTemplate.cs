@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectTemplate : MonoBehaviour
 {
     [SerializeField] private EObjectType _objectType = EObjectType.Slapable;
+    [SerializeField] private AudioSource _hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class ObjectTemplate : MonoBehaviour
     {
         Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
         rb2D.AddForceAtPosition(new Vector3(Random.Range(100, 200), Random.Range(-250, 250), 0f), character.transform.position);
-
+        _hitSound.Play();
     }
 
 }
