@@ -41,7 +41,7 @@ public class TestMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if(_moveCount < 5)
+            if(_moveCount < 6)
             {
                 if (_direction == EHandDirection.Up)
                 {
