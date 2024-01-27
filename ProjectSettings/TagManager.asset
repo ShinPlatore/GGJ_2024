@@ -10,6 +10,7 @@ TagManager:
   - Hand
   - Wall
   - Other
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Teleport
   - 
   - 
   - 
