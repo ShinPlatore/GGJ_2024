@@ -20,24 +20,23 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
 
-    private Vector3 _movePosition;
-    private Vector3 _armStockPosition;
+    [SerializeField] private GameObject _objectAtReach;
 
-    [SerializeField] private float _bendSpeed = 2f;
     [SerializeField] private int _moveCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        _movePosition = transform.position;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            PunchAction();
+            PunchAction(_objectAtReach);
 
         }
 
@@ -195,32 +194,23 @@ public class TestMovement : MonoBehaviour
         instantiatePrefab.transform.SetParent(_ArmsStock);
     }
 
-    private void PunchAction()
+    private void PunchAction(GameObject obj)
     {
-
+        obj.transform.Translate(new Vector3 (100f, 100f, 100f));
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        PunchableObject collisionObject = collision.gameObject.GetComponent<PunchableObject>();
+        Debug.Log(other.gameObject);
+        _objectAtReach = other.gameObject;
 
-        if (collisionObject != null)
+        if (_objectAtReach != null)
         {
-            collisionObject.isAtHandReach = true;
+            
         }
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        PunchableObject collisionObject = collision.gameObject.GetComponent<PunchableObject>();
-
-        if (collisionObject != null)
-        {
-            collisionObject.isAtHandReach = false;
-        }
-
-    }
 
 }

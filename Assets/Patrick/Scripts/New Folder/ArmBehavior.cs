@@ -5,8 +5,6 @@ using UnityEngine;
 public class ArmBehavior : MonoBehaviour
 {
     private float _lifeTimer = 10f;
-    private float _speed = 0.9f;
-    private Vector3 _armStockPosition;
 
 
     // Start is called before the first frame update

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float _scrollSpeed = 1f;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private Rigidbody2D _characterRigidbody = null;
     private Vector2 _movement;
