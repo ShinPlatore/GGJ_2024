@@ -49,6 +49,7 @@ public class TestMovement : MonoBehaviour
                 {
                     VerticalMove(true);
                     _moveCount++;
+                    _direction = EHandDirection.Up;
                 }
 
                 else if (_direction == EHandDirection.Down)
@@ -61,10 +62,10 @@ public class TestMovement : MonoBehaviour
                 {
                     SEMove();
                     _moveCount++;
-
+                    _direction = EHandDirection.Up;
                 }
 
-                _direction = EHandDirection.Up;
+
 
             }
             
@@ -83,14 +84,22 @@ public class TestMovement : MonoBehaviour
                 {
                     VerticalMove(false);
                     _moveCount--;
+                    _direction = EHandDirection.Down;
+                }
+
+                else if (_direction == EHandDirection.Up)
+                {
+
+
                 }
 
                 else
                 {
                     NEMove();
                     _moveCount--;
+                    _direction = EHandDirection.Down;
                 }
-                _direction = EHandDirection.Down;
+
 
             }
 
@@ -104,21 +113,22 @@ public class TestMovement : MonoBehaviour
             if (_direction == EHandDirection.Up)
             {
                 NWMove();
-
+                _direction = EHandDirection.Forward;
             }
             else if(_direction == EHandDirection.Down)
             {
                 SWMove();
-
+                _direction = EHandDirection.Forward;
             }
 
             else
             {
                 ForwardMove();
+                _direction = EHandDirection.Forward;
             }
 
 
-            _direction = EHandDirection.Forward;
+            
 
         }
 
