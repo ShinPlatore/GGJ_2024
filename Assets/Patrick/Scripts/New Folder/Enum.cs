@@ -4,3 +4,12 @@ public enum EHandDirection
     Up,
     Down,
 }
+
+public enum EObjectType
+{
+    Slapable,
+    Obstacle,
+    InteractObject,
+    EndObject,
+
+}

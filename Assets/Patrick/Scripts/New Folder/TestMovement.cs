@@ -21,7 +21,7 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
 
-    [SerializeField] private Rigidbody2D _objectAtReach;
+    [SerializeField] private ObjectTemplate _objectAtReach;
 
     [SerializeField] private int _moveCount;
 
@@ -37,7 +37,7 @@ public class TestMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            PunchAction(_objectAtReach);
+            PunchAction();
 
         }
 
@@ -195,23 +195,20 @@ public class TestMovement : MonoBehaviour
         instantiatePrefab.transform.SetParent(_ArmsStock);
     }
 
-    private void PunchAction(Rigidbody2D obj)
+    private void PunchAction()
     {
-        Vector3 direction = obj.transform.position - transform.position;
-        
-        obj.AddForceAtPosition(new Vector3(150f, 200f, 0f), obj.transform.position);
+        _objectAtReach.CollideFonction(this);
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject);
-        _objectAtReach = other.gameObject.GetComponent<Rigidbody2D>();
+        //_objectAtReach = other.gameObject.GetComponent<Rigidbody2D>();
 
-        if (_objectAtReach != null)
-        {
-            
-        }
+        _objectAtReach = other.gameObject.GetComponent<ObjectTemplate>();
+
+
 
     }
 
