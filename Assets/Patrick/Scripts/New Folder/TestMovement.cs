@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TestMovement : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
 
-    [SerializeField] private GameObject _objectAtReach;
+    [SerializeField] private Rigidbody2D _objectAtReach;
 
     [SerializeField] private int _moveCount;
 
@@ -194,16 +195,17 @@ public class TestMovement : MonoBehaviour
         instantiatePrefab.transform.SetParent(_ArmsStock);
     }
 
-    private void PunchAction(GameObject obj)
+    private void PunchAction(Rigidbody2D obj)
     {
-        obj.transform.Translate(new Vector3 (100f, 100f, 100f));
+        Vector3 direction = obj.transform.position - transform.position;
+        obj.AddForceAtPosition(new Vector3(150f, 200f, 0f), obj.transform.position);
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject);
-        _objectAtReach = other.gameObject;
+        _objectAtReach = other.gameObject.GetComponent<Rigidbody2D>();
 
         if (_objectAtReach != null)
         {
