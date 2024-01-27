@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _blur = null;
     [Header("Text")]
     [SerializeField] private TMP_Text _settings = null;
+    [SerializeField] private TMP_Text _credits = null;
+    [SerializeField] private TMP_Text _back = null;
     private float _fontSize = 75f;
     [Header("Animation")]
     private float _fadeAnimationTime = 1.95f;
@@ -24,7 +26,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _fadeInSquare = null;
     private bool _hasFinishedQuitAnimation = false;
     private bool _hasFinishedPlayAnimation = false;
-
     #endregion Fields
 
     #region Methods
@@ -51,6 +52,15 @@ public class MainMenu : MonoBehaviour
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(false);
         _creditsMenu.SetActive(true);
+        _credits.fontSize = _fontSize;
+    }
+
+    public void BackMenu()
+    {
+        _creditsMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+        _back.fontSize = _fontSize;
+        _credits.fontSize = _fontSize;
     }
 
     #region Quit Methods

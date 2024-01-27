@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SnakeController : MonoBehaviour
 {
+    [SerializeField] private Outline _outline = null;
     private Vector2 _direction = Vector2.up;
     private Vector2 _startPos;
     private float _speed = .1f;
@@ -9,6 +10,7 @@ public class SnakeController : MonoBehaviour
     private void Start()
     {
         _startPos = transform.position;
+        _outline.enabled = false;
     }
     
     private void Update()
@@ -38,6 +40,21 @@ public class SnakeController : MonoBehaviour
         if(other.tag == "Wall")
         {
             transform.position = _startPos;
+        }
+        if(other.tag == "Other")
+        {
+            _outline.enabled = true;
+        }
+        else{
+            _outline.enabled = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Other")
+        {
+            _outline.enabled = false;
         }
     }
 }

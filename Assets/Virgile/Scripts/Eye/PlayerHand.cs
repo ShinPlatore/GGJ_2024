@@ -6,7 +6,6 @@ public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private GameObject _canvas = null;
-
     public bool _hasSpaced = false;
     void Update()
     {

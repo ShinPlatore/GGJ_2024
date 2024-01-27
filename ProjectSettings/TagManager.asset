@@ -9,6 +9,7 @@ TagManager:
   - OpponentHand
   - Hand
   - Wall
+  - Other
   layers:
   - Default
   - TransparentFX
