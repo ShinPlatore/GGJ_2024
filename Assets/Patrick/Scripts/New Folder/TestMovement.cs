@@ -35,9 +35,11 @@ public class TestMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PunchAction();
 
-
-
+        }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -130,6 +132,8 @@ public class TestMovement : MonoBehaviour
             _handObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             GameObject instantiatePrefab = Instantiate(_VerticalArm, _spawnTransform.position, Quaternion.identity);
             instantiatePrefab.transform.SetParent(_ArmsStock);
+
+            
         }
         else
         {
@@ -181,5 +185,32 @@ public class TestMovement : MonoBehaviour
         instantiatePrefab.transform.SetParent(_ArmsStock);
     }
 
+    private void PunchAction()
+    {
+
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PunchableObject collisionObject = collision.gameObject.GetComponent<PunchableObject>();
+
+        if (collisionObject != null)
+        {
+            collisionObject.isAtHandReach = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        PunchableObject collisionObject = collision.gameObject.GetComponent<PunchableObject>();
+
+        if (collisionObject != null)
+        {
+            collisionObject.isAtHandReach = false;
+        }
+
+    }
 
 }
