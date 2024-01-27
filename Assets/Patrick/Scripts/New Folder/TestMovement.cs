@@ -198,6 +198,7 @@ public class TestMovement : MonoBehaviour
     private void PunchAction(Rigidbody2D obj)
     {
         Vector3 direction = obj.transform.position - transform.position;
+        
         obj.AddForceAtPosition(new Vector3(150f, 200f, 0f), obj.transform.position);
 
     }
