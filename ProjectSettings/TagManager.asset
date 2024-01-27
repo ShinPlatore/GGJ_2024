@@ -10,6 +10,7 @@ TagManager:
   - Hand
   - Wall
   - Other
+  - Object
   layers:
   - Default
   - TransparentFX
