@@ -24,6 +24,7 @@ public class TestMovement : MonoBehaviour
     private Vector3 _armStockPosition;
 
     [SerializeField] private float _bendSpeed = 2f;
+    [SerializeField] private int _moveCount;
 
     // Start is called before the first frame update
     void Start()
@@ -34,33 +35,37 @@ public class TestMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _movePosition = new Vector3(_movePosition.x, transform.position.y, _movePosition.z);
-        transform.position = Vector3.Lerp(transform.position, _movePosition, _bendSpeed * Time.deltaTime);
 
 
 
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (_direction == EHandDirection.Up)
+            if(_moveCount < 4)
             {
-                VerticalMove(true);
-                
+                if (_direction == EHandDirection.Up)
+                {
+                    VerticalMove(true);
+                    _moveCount++;
+                }
+
+                else if (_direction == EHandDirection.Down)
+                {
+
+
+                }
+
+                else
+                {
+                    SEMove();
+                    _moveCount++;
+
+                }
+
+                _direction = EHandDirection.Up;
+
             }
-
-            else if(_direction == EHandDirection.Down)
-            {
-
-
-            }
-
-            else
-            {
-                SEMove();
-                
-            }
-
-            _direction = EHandDirection.Up;
+            
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -70,19 +75,26 @@ public class TestMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (_direction == EHandDirection.Down)
+            if (_moveCount > 0)
             {
-                VerticalMove(false);
-                
+                if (_direction == EHandDirection.Down)
+                {
+                    VerticalMove(false);
+                    _moveCount--;
+                }
+
+                else
+                {
+                    NEMove();
+                    _moveCount--;
+                }
+                _direction = EHandDirection.Down;
+
             }
 
-            else
-            {
-                NEMove();
                 
-            }
 
-            _direction = EHandDirection.Down;
+
         }
 
         if (Input.GetKeyDown(KeyCode.D))

@@ -11,8 +11,14 @@ public class SnakeHandTest : MonoBehaviour
 
 
     [SerializeField] private Sprite _NESprite = null;
+    [SerializeField] private Sprite _NWSprite = null;
+    [SerializeField] private Sprite _SWSprite = null;
+    [SerializeField] private Sprite _SESprite = null;
+    [SerializeField] private Sprite _FSprite = null;
+    [SerializeField] private Sprite _VSprite = null;
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
+    [SerializeField] private float _lifeTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +29,20 @@ public class SnakeHandTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_direction == EHandDirection.Down)
+        {
+            _lifeTimer += Time.deltaTime;
+
+        }
+        if (_lifeTimer > 1)
+        {
+            _trail1.sprite = _FSprite;
+            _trail2.sprite = _SWSprite;
+            _trail3.sprite = _NESprite;
+
+            _lifeTimer = 0f;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (_direction == EHandDirection.Up)
@@ -67,6 +87,10 @@ public class SnakeHandTest : MonoBehaviour
 
             _direction = EHandDirection.Down;
             chaineAction();
+            
+
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -150,9 +174,10 @@ public class SnakeHandTest : MonoBehaviour
     {
         if(_direction == EHandDirection.Down)
         {
-            _handObject.transform.position = new Vector3(0.6f, -0.6f, 0f);
+            _handObject.transform.position = new Vector3( -0.64f, -0.64f, 0f);
             _handObject.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
             _trail1.sprite = _NESprite;
+
         }
     }
 

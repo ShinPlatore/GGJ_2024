@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArmBehavior : MonoBehaviour
 {
-    [SerializeField] private float _lifeTimer = 1f;
+    private float _lifeTimer = 10f;
     private float _speed = 0.9f;
     private Vector3 _armStockPosition;
 
