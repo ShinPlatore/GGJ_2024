@@ -4969,6 +4969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261057306}
   - component: {fileID: 1261057305}
+  - component: {fileID: 1261057307}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -5031,6 +5032,51 @@ Transform:
   - {fileID: 589445456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1261057307
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261057304}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -9.41, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.73, y: 9}
+  m_EdgeRadius: 0
 --- !u!1 &1524860249
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,6 +5250,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1519697960325500086, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094998396316069103, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094998396316069103, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094998396316069103, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094998396316069103, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8483062036377892153, guid: a5af4f6f0bfd09f4da0480addf248bf7, type: 3}
