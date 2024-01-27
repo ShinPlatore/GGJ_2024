@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5913125847801342825}
   - component: {fileID: 6425553247335116464}
   m_Layer: 0
-  m_Name: PunchObject
+  m_Name: Object
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
