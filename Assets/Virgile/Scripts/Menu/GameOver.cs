@@ -43,12 +43,12 @@ public class GameOver : MonoBehaviour
 
         if (_fadeAnimationTime <= 0 && _hasFinishedMenuAnimation == true)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainLevelDesignScene");
         }
 
         if (_fadeAnimationTime <= 0 && _hasFinishedRestartAnimation == true)
         {
-            SceneManager.LoadScene("MiniGame");
+            SceneManager.LoadScene("MainLevelDesignScene");
         }
 
         DisplayScreen();

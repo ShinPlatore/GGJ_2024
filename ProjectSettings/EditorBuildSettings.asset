@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Virgile/Scenes/MainMenu.unity
     guid: 23402f809a818d64ba44c155004ec2d8
   - enabled: 1
-    path: Assets/Virgile/Scenes/MiniGame.unity
-    guid: e4394d8a2e7d5714b8d532f4a2f0bfee
+    path: Assets/Hugo/Scenes/MainLevelDesignScene.unity
+    guid: c6d4dcfa6c22d4340840232a258aecf0
+  - enabled: 1
+    path: Assets/Patrick/Scenes/EndingCinematicScene.unity
+    guid: 5e34500661ade6544ba930ac72015663
   m_configObjects: {}

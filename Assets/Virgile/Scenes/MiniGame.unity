@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPaperScissors
       objectReference: {fileID: 0}
+    - target: {fileID: 8839337446098654934, guid: 9b491584a1f1ca34aab4b5ebe956b4e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

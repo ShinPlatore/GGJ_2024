@@ -103,7 +103,7 @@ public class MainMenu : MonoBehaviour
 
         if(_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
         {
-            SceneManager.LoadScene("MiniGame");
+            SceneManager.LoadScene("MainLevelDesignScene");
         }
     }
 
