@@ -4403,7 +4403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The last adventure of the great knight
+  m_text: For the Beer !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 581de231b3ce55c4b82da61fbbbeac31, type: 2}
   m_sharedMaterial: {fileID: -2962508957255665252, guid: 581de231b3ce55c4b82da61fbbbeac31, type: 2}
