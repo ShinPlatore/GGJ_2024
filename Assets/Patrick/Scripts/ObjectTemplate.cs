@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectTemplate : MonoBehaviour
 {
     [SerializeField] private EObjectType _objectType = EObjectType.Slapable;
+    [SerializeField] private EEndingObject _endingObject = EEndingObject.BleachBottle;
     [SerializeField] private AudioSource _hitSound;
 
     public Collider2D _hitCollider;
@@ -18,6 +19,12 @@ public class ObjectTemplate : MonoBehaviour
     public EObjectType ObjectType
     {
         get { return _objectType; }
+
+    }
+
+    public EEndingObject EndingObject
+    {
+        get { return _endingObject; }
 
     }
 

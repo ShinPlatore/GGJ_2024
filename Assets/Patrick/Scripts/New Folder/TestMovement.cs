@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TestMovement : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class TestMovement : MonoBehaviour
     [SerializeField] private Transform _spawnTransform;
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
+    
 
     [SerializeField] private ObjectTemplate _objectAtReach;
 
@@ -26,6 +28,12 @@ public class TestMovement : MonoBehaviour
     [SerializeField] private GameObject _gameOver = null;
     [SerializeField] private ScrollingBackground _scrolling = null;
     [SerializeField] private LoopingBackground _looping = null;
+
+
+    [SerializeField] private GameObject _fadeInSquare = null;
+    [SerializeField] private bool _hasFinishedPlayAnimation = false;
+    private float _fadeAnimationTimePlay = 1.95f;
+    private string _loadedscene;
 
     public int MoveCount
     {
@@ -43,7 +51,18 @@ public class TestMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if (_hasFinishedPlayAnimation == true && _fadeAnimationTimePlay > 0)
+        {
+            _fadeInSquare.SetActive(true);
+            _fadeAnimationTimePlay -= Time.deltaTime;
+        }
+
+        if (_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
+        {
+            SceneManager.LoadScene(_loadedscene);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
         {
 
 
@@ -246,7 +265,7 @@ public class TestMovement : MonoBehaviour
 
             if (_objectAtReach.ObjectType == EObjectType.EndObject)
             {
-
+                GrabEndEvent();
 
             }
 
@@ -260,7 +279,7 @@ public class TestMovement : MonoBehaviour
     private void HitObstacleEvent()
     {
         _life--;
-        if( _life == 2)
+        if( _life == 0)
         {
             _scrolling.ScrollingSpeed = 0f;
             _looping.BackgroundSpeed = 0f;
@@ -278,9 +297,31 @@ public class TestMovement : MonoBehaviour
 
     private void GrabEndEvent()
     {
+
         //play grab hand anim
 
         //do transition to the knight scene
+        _hasFinishedPlayAnimation = true;
+
+        switch ( _objectAtReach.EndingObject )
+        {
+            case EEndingObject.BleachBottle:
+                _loadedscene = "BleachEndingCinematicScene";
+                break;
+
+            case EEndingObject.Eel:
+                _loadedscene = "EelEndingCinematicScene";
+                break;
+
+            case EEndingObject.Anvil:
+                _loadedscene = "AnvilEndingCinematicScene";
+                break;
+
+            case EEndingObject.Beer:
+                _loadedscene = "BeerEndingCinematicScene";
+                break;
+
+        }
 
         //play the knight end anim, depending on the object
 
