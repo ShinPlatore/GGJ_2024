@@ -26,3 +26,12 @@ public enum EWarpPositions
 
 
 }
+
+public enum EEndingObject
+{
+    BleachBottle,
+    Eel,
+    Anvil,
+    Beer,
+
+}
