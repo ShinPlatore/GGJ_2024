@@ -7,9 +7,16 @@ public class SnakeController : MonoBehaviour
     private Vector2 _startPos;
     private float _speed = .1f;
 
+    public static Vector2 _lastCheckPointPos = new Vector2(-13,-4); // = new Vector2(x, x); Player Start Position
+
+    private void Awake()
+    {
+        transform.position = _lastCheckPointPos;
+    }
+
     private void Start()
     {
-        _startPos = transform.position;
+        //_startPos = transform.position;
         _outline.enabled = false;
     }
     
@@ -39,7 +46,7 @@ public class SnakeController : MonoBehaviour
     {
         if(other.tag == "Wall")
         {
-            transform.position = _startPos;
+            transform.position = _lastCheckPointPos;
         }
         if(other.tag == "Other")
         {

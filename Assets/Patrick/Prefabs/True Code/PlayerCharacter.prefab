@@ -90,6 +90,7 @@ MonoBehaviour:
   _spawnTransform: {fileID: 3497032102603687668}
   _direction: 0
   _objectAtReach: {fileID: 0}
+  _life: 3
   _moveCount: 0
 --- !u!61 &7176292964951720164
 BoxCollider2D:
