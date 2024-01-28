@@ -11,6 +11,8 @@ TagManager:
   - Wall
   - Other
   - Object
+  - Start
+  - End
   layers:
   - Default
   - TransparentFX
