@@ -9715,6 +9715,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 234623944}
     m_Modifications:
+    - target: {fileID: 1151233148073813816, guid: 67d3d70db71d3014ebc8a4c1c9906f05, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9d116ce7e8801744083589070b615dc6, type: 2}
     - target: {fileID: 4343927576528081560, guid: 67d3d70db71d3014ebc8a4c1c9906f05, type: 3}
       propertyPath: m_Name
       value: FadeInSquare
