@@ -4615,6 +4615,10 @@ PrefabInstance:
       propertyPath: _backgroundSpeed
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4681014670878388163, guid: 1923593c3e75fdb47aa92b599547f92d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d676b0afa0adf4a40b7afa8ead9cc4d3, type: 2}
     - target: {fileID: 5194160979593441224, guid: 1923593c3e75fdb47aa92b599547f92d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.228143
