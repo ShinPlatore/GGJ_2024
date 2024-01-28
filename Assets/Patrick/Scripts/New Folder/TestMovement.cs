@@ -24,6 +24,14 @@ public class TestMovement : MonoBehaviour
     [SerializeField] private int _life = 3;
     [SerializeField] private int _moveCount;
 
+    public int MoveCount
+    {
+        get { return _moveCount; }
+        set { _moveCount = value; }
+    }
+
+
+
     void Start()
     {
 

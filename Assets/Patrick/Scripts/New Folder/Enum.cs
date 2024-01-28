@@ -13,3 +13,16 @@ public enum EObjectType
     EndObject,
 
 }
+
+public enum EWarpPositions
+{
+    zero,
+    une,
+    deux,
+    trois,
+    quatre,
+    cinq,
+    six,
+
+
+}

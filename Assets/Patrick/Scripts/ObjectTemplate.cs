@@ -11,12 +11,20 @@ public class ObjectTemplate : MonoBehaviour
 
     #region warp
     [SerializeField] private Transform _exitWarp = null;
+    [SerializeField] private EWarpPositions _positions = EWarpPositions.zero;
+    private float _yPos;
     #endregion warp
 
     public EObjectType ObjectType
     {
         get { return _objectType; }
 
+    }
+
+    private void Awake()
+    {
+        SetExitWarpPosition();
+        _exitWarp.transform.position = new Vector3 (_exitWarp.transform.position.x, _yPos, 0f);
     }
 
     // Start is called before the first frame update
@@ -65,6 +73,68 @@ public class ObjectTemplate : MonoBehaviour
     private void WarpEvent(TestMovement character)
     {
         character.gameObject.transform.position = _exitWarp.position;
+
+        switch (_positions)
+        {
+            case EWarpPositions.zero:
+                character.MoveCount = 0;
+                break;
+            case EWarpPositions.une:
+                character.MoveCount = 1;
+                break;
+            case EWarpPositions.deux:
+                character.MoveCount = 2;
+                break;
+            case EWarpPositions.trois:
+                character.MoveCount = 3;
+                break;
+            case EWarpPositions.quatre:
+                character.MoveCount = 4;
+                break;
+            case EWarpPositions.cinq:
+                character.MoveCount = 5;
+                break;
+            case EWarpPositions.six:
+                character.MoveCount = 6;
+                break;
+        }
+
+    }
+
+
+    private void SetExitWarpPosition()
+    {
+        switch(_positions)
+        {
+            case EWarpPositions.zero:
+                _yPos = -2.2216f;
+            break;
+            case EWarpPositions.une:
+                _yPos = -1.0216f;
+            break;
+            case EWarpPositions.deux:
+                _yPos = 0.1701395f;
+            break;
+            case EWarpPositions.trois:
+                _yPos = 1.36428f;
+            
+                break;
+            case EWarpPositions.quatre:
+                _yPos = 2.56428f;
+
+
+                break;
+            case EWarpPositions.cinq:
+                _yPos = 3.764279f;
+
+
+                break;
+            case EWarpPositions.six:
+                _yPos = 4.964279f;
+
+
+                break;
+        }
 
     }
 
