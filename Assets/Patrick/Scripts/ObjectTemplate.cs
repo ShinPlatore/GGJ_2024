@@ -24,7 +24,11 @@ public class ObjectTemplate : MonoBehaviour
     private void Awake()
     {
         SetExitWarpPosition();
-        _exitWarp.transform.position = new Vector3 (_exitWarp.transform.position.x, _yPos, 0f);
+        if (_exitWarp != null )
+        {
+            _exitWarp.transform.localPosition = new Vector3(_exitWarp.transform.localPosition.x, _yPos, 0f);
+        }
+
     }
 
     // Start is called before the first frame update
@@ -108,6 +112,7 @@ public class ObjectTemplate : MonoBehaviour
         {
             case EWarpPositions.zero:
                 _yPos = -2.2216f;
+                
             break;
             case EWarpPositions.une:
                 _yPos = -1.0216f;
@@ -117,7 +122,7 @@ public class ObjectTemplate : MonoBehaviour
             break;
             case EWarpPositions.trois:
                 _yPos = 1.36428f;
-            
+
                 break;
             case EWarpPositions.quatre:
                 _yPos = 2.56428f;
