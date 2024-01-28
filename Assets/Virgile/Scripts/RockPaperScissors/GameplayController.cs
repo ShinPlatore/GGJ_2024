@@ -21,6 +21,8 @@ public class GameplayController : MonoBehaviour
 
     private AnimationController _animationController = null;
 
+    [SerializeField] private GameOver _gameOver = null;
+
 
     void Awake()
     {
@@ -76,6 +78,7 @@ public class GameplayController : MonoBehaviour
         {
             _infoText.text = "It's a DRAW!";
             StartCoroutine(DisplayWinnerAndRestart());
+            StartCoroutine(DisplayGameOver());
 
             return;
         }
@@ -91,6 +94,7 @@ public class GameplayController : MonoBehaviour
         {
             _infoText.text = "You LOSE!";
             StartCoroutine(DisplayWinnerAndRestart());
+            StartCoroutine(DisplayGameOver());
 
             return;
         }
@@ -105,6 +109,7 @@ public class GameplayController : MonoBehaviour
         {
             _infoText.text = "You LOSE!";
             StartCoroutine(DisplayWinnerAndRestart());
+            StartCoroutine(DisplayGameOver());
 
             return;
         }
@@ -119,6 +124,7 @@ public class GameplayController : MonoBehaviour
         {
             _infoText.text = "You LOSE!";
             StartCoroutine(DisplayWinnerAndRestart());
+            StartCoroutine(DisplayGameOver());
 
             return;
         }
@@ -129,9 +135,15 @@ public class GameplayController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         _infoText.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+        /*yield return new WaitForSeconds(2f);
         _infoText.gameObject.SetActive(false);
-        _animationController.ResetAnimations();
-    } 
+        _animationController.ResetAnimations();*/
+    }
+
+    IEnumerator DisplayGameOver()
+    {
+        yield return new WaitForSeconds(3f);
+        _gameOver.IsGameOver = true;
+    }
 
 }
