@@ -7,6 +7,11 @@ public class LoopingBackground : MonoBehaviour
     [SerializeField] private float _backgroundSpeed = 1;
     [SerializeField] private Renderer _backgroundRenderer = null;
 
+    public float BackgroundSpeed
+    {
+        get { return _backgroundSpeed; }
+        set { _backgroundSpeed = value; }
+    }
     // Start is called before the first frame update
     void Start()
     {

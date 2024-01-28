@@ -6,6 +6,12 @@ public class ScrollingBackground : MonoBehaviour
 {
     [SerializeField] private float _scrollingSpeed = 1f;
 
+    public float ScrollingSpeed
+    {
+        get { return _scrollingSpeed; }
+        set { _scrollingSpeed = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

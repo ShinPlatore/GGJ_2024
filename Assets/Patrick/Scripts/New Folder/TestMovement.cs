@@ -23,6 +23,9 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private int _life = 3;
     [SerializeField] private int _moveCount;
+    [SerializeField] private GameObject _gameOver = null;
+    [SerializeField] private ScrollingBackground _scrolling = null;
+    [SerializeField] private LoopingBackground _looping = null;
 
     public int MoveCount
     {
@@ -40,6 +43,12 @@ public class TestMovement : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+
+
+        }
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if (_objectAtReach.ObjectType == EObjectType.Slapable)
@@ -251,9 +260,12 @@ public class TestMovement : MonoBehaviour
     private void HitObstacleEvent()
     {
         _life--;
-        if( _life == 0)
+        if( _life == 2)
         {
-            Debug.Log("You Lose");
+            _scrolling.ScrollingSpeed = 0f;
+            _looping.BackgroundSpeed = 0f;
+            
+            _gameOver.SetActive(true);
         }
 
     }

@@ -10,7 +10,6 @@ public class InitGame : MonoBehaviour
 
     void Start()
     {
-        _mainThemeMusic.Play();
         _fadeOutSquare.SetActive(true);
     }
 

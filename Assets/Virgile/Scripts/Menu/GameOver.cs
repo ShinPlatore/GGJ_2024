@@ -30,7 +30,7 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        _gameOverScreen.SetActive(false);
+
     }
 
     private void Update()
@@ -43,7 +43,7 @@ public class GameOver : MonoBehaviour
 
         if (_fadeAnimationTime <= 0 && _hasFinishedMenuAnimation == true)
         {
-            SceneManager.LoadScene("MainLevelDesignScene");
+            SceneManager.LoadScene("MainMenu");
         }
 
         if (_fadeAnimationTime <= 0 && _hasFinishedRestartAnimation == true)
