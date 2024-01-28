@@ -252,7 +252,7 @@ public class TestMovement : MonoBehaviour
 
     private void HitInteractEvent()
     {
-        
+        _objectAtReach.CollideFonction(this);
 
     }
 

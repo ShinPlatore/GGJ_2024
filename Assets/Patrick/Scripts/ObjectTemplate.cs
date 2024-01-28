@@ -9,6 +9,10 @@ public class ObjectTemplate : MonoBehaviour
 
     public Collider2D _hitCollider;
 
+    #region warp
+    [SerializeField] private Transform _exitWarp = null;
+    #endregion warp
+
     public EObjectType ObjectType
     {
         get { return _objectType; }
@@ -40,7 +44,7 @@ public class ObjectTemplate : MonoBehaviour
                 break;
 
             case EObjectType.InteractObject:
-
+                WarpEvent(character);
                 break;
 
             case EObjectType.EndObject:
@@ -56,6 +60,12 @@ public class ObjectTemplate : MonoBehaviour
         Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
         rb2D.AddForceAtPosition(new Vector3(Random.Range(100, 200), Random.Range(-250, 250), 0f), character.transform.position);
         _hitSound.Play();
+    }
+
+    private void WarpEvent(TestMovement character)
+    {
+        character.gameObject.transform.position = _exitWarp.position;
+
     }
 
 }
