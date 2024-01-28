@@ -279,7 +279,7 @@ public class TestMovement : MonoBehaviour
     private void HitObstacleEvent()
     {
         _life--;
-        if( _life == 2)
+        if( _life == 0)
         {
             _scrolling.ScrollingSpeed = 0f;
             _looping.BackgroundSpeed = 0f;
