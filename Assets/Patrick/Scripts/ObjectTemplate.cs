@@ -7,10 +7,18 @@ public class ObjectTemplate : MonoBehaviour
     [SerializeField] private EObjectType _objectType = EObjectType.Slapable;
     [SerializeField] private AudioSource _hitSound;
 
+    public Collider2D _hitCollider;
+
+    public EObjectType ObjectType
+    {
+        get { return _objectType; }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _hitCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame

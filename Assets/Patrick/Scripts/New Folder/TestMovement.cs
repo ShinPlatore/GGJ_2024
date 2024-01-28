@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TestMovement : MonoBehaviour
 {
@@ -23,6 +21,7 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private ObjectTemplate _objectAtReach;
 
+    [SerializeField] private int _life = 3;
     [SerializeField] private int _moveCount;
 
     void Start()
@@ -35,7 +34,11 @@ public class TestMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            PunchAction();
+            if (_objectAtReach.ObjectType == EObjectType.Slapable)
+            {
+                PunchAction();
+
+            }
 
         }
 
@@ -201,11 +204,65 @@ public class TestMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject);
-        //_objectAtReach = other.gameObject.GetComponent<Rigidbody2D>();
-
         _objectAtReach = other.gameObject.GetComponent<ObjectTemplate>();
 
+        if( _objectAtReach != null )
+        {
+            if (_objectAtReach.ObjectType == EObjectType.Slapable)
+            {
+
+
+            }
+
+            if (_objectAtReach.ObjectType == EObjectType.Obstacle)
+            {
+                HitObstacleEvent();
+                _objectAtReach._hitCollider.enabled = false;
+
+            }
+
+            if (_objectAtReach.ObjectType == EObjectType.InteractObject)
+            {
+                HitInteractEvent();
+
+            }
+
+            if (_objectAtReach.ObjectType == EObjectType.EndObject)
+            {
+
+
+            }
+
+        }
+
+
+
+    }
+
+
+    private void HitObstacleEvent()
+    {
+        _life--;
+        if( _life == 0)
+        {
+            Debug.Log("You Lose");
+        }
+
+    }
+
+    private void HitInteractEvent()
+    {
+        
+
+    }
+
+    private void GrabEndEvent()
+    {
+        //play grab hand anim
+
+        //do transition to the knight scene
+
+        //play the knight end anim, depending on the object
 
 
     }
