@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7106123330742935457}
   - component: {fileID: 6774049199269226792}
   m_Layer: 0
-  m_Name: SouthWestPrefab
+  m_Name: VertiDownPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,10 +106,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 482c5d9bbf5b68a4b803fc86f689eb7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 843b7a6a28dc3fd4792b202da6cdab2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
-  m_FlipY: 0
+  m_FlipX: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
