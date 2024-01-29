@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a688be6003d8fb488e050e6312b61d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectType: 0
+  _objectType: 3
+  _endingObject: 1
   _hitSound: {fileID: 0}
   _hitCollider: {fileID: 0}
   _exitWarp: {fileID: 0}

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 
-public class TestMovement : MonoBehaviour
+public class CharacterControllerFinal : MonoBehaviour
 {
     [SerializeField] private Transform _ArmsStock = null;
 
@@ -17,11 +15,13 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private GameObject _ForwardArm;
     [SerializeField] private GameObject _VerticalArm;
+    [SerializeField] private GameObject _VerticalDownArm;
 
     [SerializeField] private Transform _spawnTransform;
 
     [SerializeField] private EHandDirection _direction = EHandDirection.Forward;
- 
+    [SerializeField] private Animator _handAnimator = null;
+
     [SerializeField] private ObjectTemplate _objectAtReach;
 
     [SerializeField] private CinemachineImpulseSource _impulseSource;
@@ -80,13 +80,14 @@ public class TestMovement : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (_objectAtReach != null)
             {
                 if (_objectAtReach.ObjectType == EObjectType.Slapable)
                 {
                     PunchAction();
+                    _handAnimator.SetBool("isSlapping", true);
                 }
             }
 
@@ -95,11 +96,12 @@ public class TestMovement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if(_objectAtReach != null)
+            if (_objectAtReach != null)
             {
                 if (_objectAtReach.ObjectType == EObjectType.Slapable)
                 {
-
+                    PunchAction();
+                    _handAnimator.SetBool("isSlapping", false);
                 }
             }
 
@@ -108,7 +110,7 @@ public class TestMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if(_moveCount < 6)
+            if (_moveCount < 6)
             {
                 if (_direction == EHandDirection.Up)
                 {
@@ -133,7 +135,7 @@ public class TestMovement : MonoBehaviour
 
 
             }
-            
+
         }
 
         if (Input.GetKeyDown(KeyCode.Q) | Input.GetKeyDown(KeyCode.LeftArrow))
@@ -168,7 +170,7 @@ public class TestMovement : MonoBehaviour
 
             }
 
-                
+
 
 
         }
@@ -180,7 +182,7 @@ public class TestMovement : MonoBehaviour
                 NWMove();
                 _direction = EHandDirection.Forward;
             }
-            else if(_direction == EHandDirection.Down)
+            else if (_direction == EHandDirection.Down)
             {
                 SWMove();
                 _direction = EHandDirection.Forward;
@@ -193,7 +195,7 @@ public class TestMovement : MonoBehaviour
             }
 
 
-            
+
 
         }
 
@@ -208,13 +210,13 @@ public class TestMovement : MonoBehaviour
             GameObject instantiatePrefab = Instantiate(_VerticalArm, _spawnTransform.position, Quaternion.identity);
             instantiatePrefab.transform.SetParent(_ArmsStock);
 
-            
+
         }
         else
         {
             transform.position += new Vector3(0f, -1.2f, 0f);
             _handObject.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-            GameObject instantiatePrefab = Instantiate(_VerticalArm, _spawnTransform.position, Quaternion.identity);
+            GameObject instantiatePrefab = Instantiate(_VerticalDownArm, _spawnTransform.position, Quaternion.identity);
             instantiatePrefab.transform.SetParent(_ArmsStock);
         }
 
@@ -230,7 +232,7 @@ public class TestMovement : MonoBehaviour
 
     void SEMove()
     {
-        transform.position += new Vector3(0.6f, 0.6f, 0f);
+        transform.position += new Vector3(-0.2255f, 2.654f, 0f);
         _handObject.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         GameObject instantiatePrefab = Instantiate(_SEArm, _spawnTransform.position, Quaternion.identity);
         instantiatePrefab.transform.SetParent(_ArmsStock);
@@ -238,7 +240,7 @@ public class TestMovement : MonoBehaviour
 
     void NEMove()
     {
-        transform.position += new Vector3(0.6f, -0.6f, 0f);
+        transform.position += new Vector3(0f, -2.88f, 0f);
         _handObject.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         GameObject instantiatePrefab = Instantiate(_NEArm, _spawnTransform.position, Quaternion.identity);
         instantiatePrefab.transform.SetParent(_ArmsStock);
@@ -246,7 +248,7 @@ public class TestMovement : MonoBehaviour
 
     void NWMove()
     {
-        transform.position += new Vector3(0.6f, 0.6f, 0f);
+        transform.position += new Vector3(2.8815f, 0f, 0f);
         _handObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         GameObject instantiatePrefab = Instantiate(_NWArm, _spawnTransform.position, Quaternion.identity);
         instantiatePrefab.transform.SetParent(_ArmsStock);
@@ -254,7 +256,7 @@ public class TestMovement : MonoBehaviour
 
     void SWMove()
     {
-        transform.position += new Vector3(0.6f, -0.6f, 0f);
+        transform.position += new Vector3(2.654f, 0.30f, 0f);
         _handObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         GameObject instantiatePrefab = Instantiate(_SWArm, _spawnTransform.position, Quaternion.identity);
         instantiatePrefab.transform.SetParent(_ArmsStock);
@@ -262,7 +264,7 @@ public class TestMovement : MonoBehaviour
 
     private void PunchAction()
     {
-        _objectAtReach.CollideFonction(this);
+        //_objectAtReach.CollideFonction(this);
 
     }
 
@@ -270,7 +272,7 @@ public class TestMovement : MonoBehaviour
     {
         _objectAtReach = other.gameObject.GetComponent<ObjectTemplate>();
 
-        if(_objectAtReach != null)
+        if (_objectAtReach != null)
         {
             if (_objectAtReach.ObjectType == EObjectType.Slapable)
             {
@@ -313,20 +315,20 @@ public class TestMovement : MonoBehaviour
     }
 
 
-        private void HitObstacleEvent()
+    private void HitObstacleEvent()
     {
         _life--;
-        if(_life >= 0)
+        if (_life >= 0)
         {
             _currentLife[_life].sprite = _emptySprite;
             CameraShakeManager._instance.CameraShake(_impulseSource);
-        } 
+        }
 
-        if( _life <= 0)
+        if (_life <= 0)
         {
             _scrolling.ScrollingSpeed = 0f;
             _looping.BackgroundSpeed = 0f;
-            
+
             _gameOver.SetActive(true);
         }
 
@@ -334,7 +336,7 @@ public class TestMovement : MonoBehaviour
 
     private void HitInteractEvent()
     {
-        _objectAtReach.CollideFonction(this);
+        //_objectAtReach.CollideFonction(this);
 
     }
 
@@ -342,11 +344,11 @@ public class TestMovement : MonoBehaviour
     {
 
         //play grab hand anim
-
+        _handAnimator.SetBool("isGrabbing", true);
         //do transition to the knight scene
         _hasFinishedPlayAnimation = true;
 
-        switch ( _objectAtReach.EndingObject )
+        switch (_objectAtReach.EndingObject)
         {
             case EEndingObject.BleachBottle:
                 _loadedscene = "BleachEndingCinematicScene";

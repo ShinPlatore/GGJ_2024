@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Patrick/Scenes/BleachEndingCinematicScene.unity
     guid: 5e34500661ade6544ba930ac72015663
+  - enabled: 1
+    path: Assets/Patrick/Scenes/EelEndingCinematicScene.unity
+    guid: c3adac09fcee73a4f9250df08aac50c7
+  - enabled: 1
+    path: Assets/Patrick/Scenes/AnvilEndingCinematicScene.unity
+    guid: 4efe0c0d229fb504b8f7b35464117bed
+  - enabled: 1
+    path: Assets/Patrick/Scenes/BeerEndingCinematicScene.unity
+    guid: e5cb8b2dcde017f4b924df9b3d4e0702
   m_configObjects: {}
