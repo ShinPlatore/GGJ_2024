@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TestMovement : MonoBehaviour
@@ -23,7 +24,16 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private ObjectTemplate _objectAtReach;
 
+
+    #region Life
     [SerializeField] private int _life = 3;
+    [SerializeField] private Sprite _lifeSprite = null;
+    [SerializeField] private Sprite _emptySprite = null;
+
+    [SerializeField] private Image[] _currentLife = null;
+
+    #endregion Life
+
     [SerializeField] private int _moveCount;
     [SerializeField] private GameObject _gameOver = null;
     [SerializeField] private ScrollingBackground _scrolling = null;
@@ -279,6 +289,8 @@ public class TestMovement : MonoBehaviour
     private void HitObstacleEvent()
     {
         _life--;
+        _currentLife[_life].sprite = _emptySprite;
+
         if( _life == 0)
         {
             _scrolling.ScrollingSpeed = 0f;
