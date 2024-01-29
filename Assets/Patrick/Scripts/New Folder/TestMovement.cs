@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class TestMovement : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class TestMovement : MonoBehaviour
     
 
     [SerializeField] private ObjectTemplate _objectAtReach;
+
+    [SerializeField] private CinemachineImpulseSource _impulseSource;
 
 
     #region Life
@@ -289,9 +292,13 @@ public class TestMovement : MonoBehaviour
     private void HitObstacleEvent()
     {
         _life--;
-        _currentLife[_life].sprite = _emptySprite;
+        if(_life >= 0)
+        {
+            _currentLife[_life].sprite = _emptySprite;
+            CameraShakeManager._instance.CameraShake(_impulseSource);
+        } 
 
-        if( _life == 0)
+        if( _life <= 0)
         {
             _scrolling.ScrollingSpeed = 0f;
             _looping.BackgroundSpeed = 0f;

@@ -21,30 +21,31 @@ public class BiomeTransition : MonoBehaviour
 
     private void Update()
     {
-            if (_hasFinishedQuitAnimation == true && _fadeAnimationTime > 0)
-            {
-                _fadeOutSquare.SetActive(true);
-                _fadeAnimationTime -= Time.deltaTime;
-            }
+        if (_hasFinishedQuitAnimation == true && _fadeAnimationTime > 0)
+        {
+            _fadeInSquare.SetActive(true);
+            _fadeAnimationTime -= Time.deltaTime;
+        }
 
-            if (_fadeAnimationTime <= 0 && _hasFinishedQuitAnimation == true)
-            {
-            
-                _hasFinishedPlayAnimation = true;
-            }
+        if (_fadeAnimationTime <= 0 && _hasFinishedQuitAnimation == true)
+        {
+            _hasFinishedPlayAnimation = true;
+            _fadeOutSquare.SetActive(true);
+            _fadeInSquare.SetActive(false);
+            _mainTheme.clip = _biomeAudioClips[_biomeNumber];
+            _biomeMaterial.material = _backgroundTexture[_biomeNumber];
+        }
 
-            if (_hasFinishedPlayAnimation == true && _fadeAnimationTimePlay > 0)
-            {
-                _fadeInSquare.SetActive(true);
-                _fadeAnimationTimePlay -= Time.deltaTime;
-            }
-
-            if (_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
-            {
-                
-            }
-
-        Debug.Log(_hasFinishedPlayAnimation);
+        if (_hasFinishedPlayAnimation == true && _fadeAnimationTimePlay > 0)
+        {
+            _fadeOutSquare.SetActive(true);
+            _fadeAnimationTimePlay -= Time.deltaTime;
+        }
+        if (_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
+        {
+            Debug.Log("End");
+            _fadeOutSquare.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,9 +53,7 @@ public class BiomeTransition : MonoBehaviour
         if(collision.tag == "Player")
         {
             _hasFinishedQuitAnimation = true;
-
-            _mainTheme.clip = _biomeAudioClips[_biomeNumber];
-            _biomeMaterial.material = _backgroundTexture[_biomeNumber];
+            _fadeInSquare.SetActive(true);
         }
 
     }
