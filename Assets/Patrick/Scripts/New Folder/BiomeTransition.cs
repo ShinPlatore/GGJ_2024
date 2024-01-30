@@ -23,6 +23,7 @@ public class BiomeTransition : MonoBehaviour
     {
         if (_hasFinishedQuitAnimation == true && _fadeAnimationTime > 0)
         {
+
             _fadeInSquare.SetActive(true);
             _fadeAnimationTime -= Time.deltaTime;
         }
@@ -32,20 +33,22 @@ public class BiomeTransition : MonoBehaviour
             _hasFinishedPlayAnimation = true;
             _fadeOutSquare.SetActive(true);
             _fadeInSquare.SetActive(false);
-            _mainTheme.clip = _biomeAudioClips[_biomeNumber];
-            _biomeMaterial.material = _backgroundTexture[_biomeNumber];
         }
 
         if (_hasFinishedPlayAnimation == true && _fadeAnimationTimePlay > 0)
         {
             _fadeOutSquare.SetActive(true);
             _fadeAnimationTimePlay -= Time.deltaTime;
+            _biomeMaterial.material = _backgroundTexture[_biomeNumber];
+            _mainTheme.clip = _biomeAudioClips[_biomeNumber];
+            _mainTheme.Play();
         }
         if (_fadeAnimationTimePlay <= 0 && _hasFinishedPlayAnimation == true)
         {
-            Debug.Log("End");
             _fadeOutSquare.SetActive(false);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,9 +57,18 @@ public class BiomeTransition : MonoBehaviour
         {
             _hasFinishedQuitAnimation = true;
             _fadeInSquare.SetActive(true);
+
+
         }
 
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
 
+        }
+
+    }
 }

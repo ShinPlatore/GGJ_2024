@@ -29,7 +29,6 @@ public class TestMovement : MonoBehaviour
 
     #region Life
     [SerializeField] private int _life = 3;
-    [SerializeField] private Sprite _lifeSprite = null;
     [SerializeField] private Sprite _emptySprite = null;
 
     [SerializeField] private Image[] _currentLife = null;
@@ -281,7 +280,6 @@ public class TestMovement : MonoBehaviour
             if (_objectAtReach.ObjectType == EObjectType.Obstacle)
             {
                 HitObstacleEvent();
-                _objectAtReach._hitCollider.enabled = false;
 
             }
 
@@ -320,6 +318,7 @@ public class TestMovement : MonoBehaviour
         {
             _currentLife[_life].sprite = _emptySprite;
             CameraShakeManager._instance.CameraShake(_impulseSource);
+            _objectAtReach._hitCollider.enabled = false;
         } 
 
         if( _life <= 0)

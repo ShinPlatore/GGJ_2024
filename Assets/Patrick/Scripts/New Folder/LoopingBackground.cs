@@ -21,6 +21,7 @@ public class LoopingBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _backgroundSpeed += Time.fixedDeltaTime / 20000;
         _backgroundRenderer.material.mainTextureOffset += new Vector2(_backgroundSpeed * Time.deltaTime, 0f);
     }
 }

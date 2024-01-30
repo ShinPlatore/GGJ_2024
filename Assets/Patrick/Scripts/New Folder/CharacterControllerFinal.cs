@@ -29,7 +29,6 @@ public class CharacterControllerFinal : MonoBehaviour
 
     #region Life
     [SerializeField] private int _life = 3;
-    [SerializeField] private Sprite _lifeSprite = null;
     [SerializeField] private Sprite _emptySprite = null;
 
     [SerializeField] private Image[] _currentLife = null;

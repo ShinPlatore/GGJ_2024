@@ -59,7 +59,7 @@ public class ObjectTemplate : MonoBehaviour
                 break;
 
             case EObjectType.Obstacle:
-
+                _hitSound.Play();
                 break;
 
             case EObjectType.InteractObject:
@@ -67,7 +67,7 @@ public class ObjectTemplate : MonoBehaviour
                 break;
 
             case EObjectType.EndObject:
-
+                _hitSound.Play();
                 break;
 
         }
@@ -83,7 +83,12 @@ public class ObjectTemplate : MonoBehaviour
 
     private void WarpEvent(TestMovement character)
     {
-        character.gameObject.transform.position = _exitWarp.position;
+        if (_exitWarp != null )
+        {
+            _hitSound.Play();
+            character.gameObject.transform.position = _exitWarp.position;
+        }
+
 
         switch (_positions)
         {
