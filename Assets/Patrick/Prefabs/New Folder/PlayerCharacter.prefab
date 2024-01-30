@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7662327936215680708}
-  - component: {fileID: 3836854417885702693}
   - component: {fileID: 7065682535703835767}
+  - component: {fileID: 4505664959955279771}
   - component: {fileID: 7515117013613454901}
   - component: {fileID: 8733776159152158009}
   m_Layer: 0
@@ -36,42 +36,6 @@ Transform:
   - {fileID: 5469692711855462195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3836854417885702693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359000896184117014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e0d2f8e29a67a24f94ecfcddb4df611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ArmsStock: {fileID: 0}
-  _handObject: {fileID: 1359000896184117014}
-  _NEArm: {fileID: 8117679592663287083, guid: 369502b4142bb7741b9ce7897619a269, type: 3}
-  _NWArm: {fileID: 8117679592663287083, guid: 2f6ed2573ea88e64da230948f7df7011, type: 3}
-  _SEArm: {fileID: 8117679592663287083, guid: 77e02551e6b309f4796b08c20caf890e, type: 3}
-  _SWArm: {fileID: 8117679592663287083, guid: 6bac8e6a90e1214468d8703588cf7e94, type: 3}
-  _ForwardArm: {fileID: 8117679592663287083, guid: c7ee0ce2a36695340ac5595d228018a4, type: 3}
-  _VerticalArm: {fileID: 8117679592663287083, guid: e6a1fd504408222439e3b448c382b62c, type: 3}
-  _VerticalDownArm: {fileID: 8117679592663287083, guid: 9d4142e53e9a7494bba2130c5dcfa59e, type: 3}
-  _spawnTransform: {fileID: 795074686009238495}
-  _direction: 0
-  _handAnimator: {fileID: 4252863697426101468}
-  _objectAtReach: {fileID: 0}
-  _impulseSource: {fileID: 0}
-  _life: 3
-  _lifeSprite: {fileID: 0}
-  _emptySprite: {fileID: 0}
-  _currentLife: []
-  _moveCount: 3
-  _gameOver: {fileID: 0}
-  _scrolling: {fileID: 0}
-  _looping: {fileID: 0}
-  _fadeInSquare: {fileID: 0}
-  _hasFinishedPlayAnimation: 0
 --- !u!61 &7065682535703835767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,6 +81,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.26, y: 0.54}
   m_EdgeRadius: 0
+--- !u!114 &4505664959955279771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359000896184117014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384be2093c30abb4eb01d48e6841f625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ArmsStock: {fileID: 0}
+  _handObject: {fileID: 1359000896184117014}
+  _NEArm: {fileID: 8117679592663287083, guid: 369502b4142bb7741b9ce7897619a269, type: 3}
+  _NWArm: {fileID: 8117679592663287083, guid: 2f6ed2573ea88e64da230948f7df7011, type: 3}
+  _SEArm: {fileID: 8117679592663287083, guid: 77e02551e6b309f4796b08c20caf890e, type: 3}
+  _SWArm: {fileID: 8117679592663287083, guid: 6bac8e6a90e1214468d8703588cf7e94, type: 3}
+  _ForwardArm: {fileID: 8117679592663287083, guid: c7ee0ce2a36695340ac5595d228018a4, type: 3}
+  _VerticalArm: {fileID: 8117679592663287083, guid: e6a1fd504408222439e3b448c382b62c, type: 3}
+  _VerticalDownArm: {fileID: 8117679592663287083, guid: 9d4142e53e9a7494bba2130c5dcfa59e, type: 3}
+  _spawnTransform: {fileID: 0}
+  _direction: 0
+  _handAnimator: {fileID: 4252863697426101468}
+  _objectAtReach: {fileID: 0}
+  _impulseSource: {fileID: 0}
+  _life: 3
+  _lifeSprite: {fileID: -5390123095117124330, guid: 74f8b4d56cb24724abef2f7c526fd9ca, type: 3}
+  _emptySprite: {fileID: -8880520576215733831, guid: 74f8b4d56cb24724abef2f7c526fd9ca, type: 3}
+  _currentLife: []
+  _moveCount: 0
+  _gameOver: {fileID: 0}
+  _scrolling: {fileID: 0}
+  _looping: {fileID: 0}
+  _fadeInSquare: {fileID: 0}
+  _hasFinishedPlayAnimation: 0
 --- !u!61 &7515117013613454901
 BoxCollider2D:
   m_ObjectHideFlags: 0
