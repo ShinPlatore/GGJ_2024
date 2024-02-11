@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoopingBackground : MonoBehaviour
 {
-    [SerializeField] private float _backgroundSpeed = 1;
+    [SerializeField] private float _backgroundSpeed = 0.3f;
     [SerializeField] private Renderer _backgroundRenderer = null;
 
     public float BackgroundSpeed
@@ -15,7 +15,7 @@ public class LoopingBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _backgroundSpeed = Manager.Instance.Background;
     }
 
     // Update is called once per frame

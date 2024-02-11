@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScrollingBackground : MonoBehaviour
 {
-    [SerializeField] private float _scrollingSpeed = 1f;
+    [SerializeField] private float _scrollingSpeed = 4f;
 
     public float ScrollingSpeed
     {
@@ -15,7 +15,8 @@ public class ScrollingBackground : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = Manager.Instance.CameraPosition;
+        _scrollingSpeed = Manager.Instance.Scrolling;
     }
 
     // Update is called once per frame

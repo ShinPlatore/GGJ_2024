@@ -9,6 +9,9 @@ public class BiomeTransition : MonoBehaviour
     [SerializeField] private AudioClip[] _biomeAudioClips = null;
     [SerializeField] private int _biomeNumber = 0;
 
+    [SerializeField] private TestMovement _playerController = null;
+    [SerializeField] private GameObject _CameraPrefab = null;
+
     [SerializeField] private MeshRenderer _biomeMaterial = null;
     [SerializeField] private Material[] _backgroundTexture = null;
 
@@ -18,6 +21,11 @@ public class BiomeTransition : MonoBehaviour
     [SerializeField] private GameObject _fadeInSquare = null;
     private bool _hasFinishedQuitAnimation = false;
     private bool _hasFinishedPlayAnimation = false;
+
+    [SerializeField] private ScrollingBackground _scrollingBackground = null;
+    [SerializeField] private LoopingBackground _loopingBackground = null;
+
+
 
     private void Update()
     {
@@ -57,8 +65,11 @@ public class BiomeTransition : MonoBehaviour
         {
             _hasFinishedQuitAnimation = true;
             _fadeInSquare.SetActive(true);
+            Manager.Instance.PlayerPosition = new Vector3 (transform.position.x, Manager.Instance.PlayerPosition.y, Manager.Instance.PlayerPosition.z);
+            Manager.Instance.CameraPosition = new Vector3 (transform.position.x, Manager.Instance.CameraPosition.y, Manager.Instance.CameraPosition.z);
 
-
+            Manager.Instance.Scrolling = _scrollingBackground.ScrollingSpeed;
+            Manager.Instance.Background = _loopingBackground.BackgroundSpeed;
         }
 
     }

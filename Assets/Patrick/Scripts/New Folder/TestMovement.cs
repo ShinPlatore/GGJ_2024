@@ -26,6 +26,7 @@ public class TestMovement : MonoBehaviour
 
     [SerializeField] private CinemachineImpulseSource _impulseSource;
 
+    private Vector3 _respawnLocation = Vector3.zero;
 
     #region Life
     [SerializeField] private int _life = 3;
@@ -52,11 +53,21 @@ public class TestMovement : MonoBehaviour
         set { _moveCount = value; }
     }
 
-
+    public Vector3 RespawnLocation
+    {
+        get
+        {
+            return _respawnLocation;
+        }
+        set 
+        { 
+            _respawnLocation = value; 
+        }
+    }
 
     void Start()
     {
-
+        transform.position = Manager.Instance.PlayerPosition;
 
     }
 
@@ -296,6 +307,7 @@ public class TestMovement : MonoBehaviour
             }
 
         }
+        
 
 
     }
